@@ -3,5 +3,5 @@
 **B** : Base , Basic
 **M** : Middle (Wall)
 **C** : Sky (Ceiling)
-**ALG** : almost M to C
+**ALG** : Mostly M to C
 **MH** : Math
