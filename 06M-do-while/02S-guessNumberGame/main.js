@@ -16,6 +16,18 @@
 		 	- go back to GET
 
 	PLAYER-B : คนทาย
+	- SET : จำนวนครั้งที่ทายเป็น 0
+	- GET : ลองให้ทายก่อน 1 ครั้ง
+	- CHECK Valid 
+		 IF ไม่ valid
+		 	- ไป GET  (ไม่นับ Count)
+	- CHECK Correct
+		IF ถ้า correct 
+			- SHOW : ถูกต้อง
+			- SHOW : จำนวนครั้ง
+		ELSE 
+			- SHOW : มากกว่า หรือ น้อยกว่า
+			- SET : count + 1
 */
 
 // helper function
@@ -41,4 +53,48 @@ do {
   }
 } while (!isValid(secretNumber) || !isInRangeAndInt(secretNumber));
 
-console.log(secretNumber); //
+console.log(secretNumber); // 1-99 ()
+
+// Player B Problem
+
+/*
+	PLAYER-B : คนทาย
+	- SET : จำนวนครั้งที่ทายเป็น 0
+	- GET : ลองให้ทายก่อน 1 ครั้ง
+	- CHECK Valid 
+		 IF ไม่ valid
+		 	- ไป GET  (ไม่นับ Count)
+	- SET : count + 1
+	- CHECK Correct
+		IF ถ้า correct 
+			- SHOW : ถูกต้อง
+			- SHOW : จำนวนครั้ง
+		ELSE 
+			- SHOW : มากกว่า หรือ น้อยกว่า
+			
+			- กลับไป GET
+*/
+
+// helper function
+function isEqual(x, y) {
+  return Number(x) === Number(y);
+}
+
+let times = 0;
+
+let guestNumber;
+
+do {
+  guestNumber = prompt('Guest number between 1-99');
+  if (!isValid(guestNumber) && !isInRangeAndInt(guestNumber)) {
+    continue;
+  }
+  times++;
+  if (isEqual(secretNumber, guestNumber)) {
+    console.log('Correct');
+    console.log('Times : ', times);
+  } else {
+    if (guestNumber > secretNumber) alert(` ${guestNumber} more than secret number`);
+    else if (guestNumber < secretNumber) alert(`${guestNumber}lower than secret number`);
+  }
+} while (!isEqual(guestNumber, secretNumber));
