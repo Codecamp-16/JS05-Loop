@@ -47,11 +47,20 @@ const _ = '_';
 
 // GameBoard
 
+// N = 3 => 9 iterate
 const gameBoard = [
   [X, _, X],
   [_, O, _],
   [O, _, X],
 ];
+
+// N = 4 => 16 iteration
+// const gameBoard = [
+//   [X, _, X, _],
+//   [_, O, _, O],
+//   [O, _, X, X],
+//   [O, _, X, _],
+// ];
 
 // Problem : WalkThrough Each Cell
 
@@ -65,10 +74,10 @@ const gameBoard = [
 // }
 
 for (let i = 0; i < gameBoard.length; i++) {
-  console.log('ROW:', i + 1, gameBoard[i]);
+  // console.log('ROW:', i + 1, gameBoard[i]);
   let row = gameBoard[i];
   for (let j = 0; j < row.length; j++) {
-    console.log(row[j]);
+    console.log(row[j]); // รอบ
   }
 }
 
